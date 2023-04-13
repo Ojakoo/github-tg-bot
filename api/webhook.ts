@@ -3,7 +3,7 @@ import config from "../config";
 import { Telegraf, Context } from "telegraf";
 import { VercelRequest, VercelResponse } from "@vercel/node";
 
-const bot_token = config.BOT_TOKEN;
+export const bot_token = config.BOT_TOKEN;
 const bot = new Telegraf(bot_token);
 
 bot.command("hello", async (ctx: Context) => {
@@ -12,9 +12,7 @@ bot.command("hello", async (ctx: Context) => {
 
 export default async (req: VercelRequest, res: VercelResponse) => {
   try {
-    const { body, query } = req;
-    console.log("Query:");
-    console.log(query);
+    const { body } = req;
     await bot.handleUpdate(body);
   } catch (error) {
     console.log("Error:");

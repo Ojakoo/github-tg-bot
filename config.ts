@@ -14,7 +14,7 @@ interface Config {
 
 const getConfig = (): ENV => {
   return {
-    BOT_TOKEN: process.env.NODE_ENV,
+    BOT_TOKEN: process.env.BOT_TOKEN,
   };
 };
 
