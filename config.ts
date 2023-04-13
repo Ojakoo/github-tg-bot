@@ -6,15 +6,18 @@ dotenv.config({ path: path.resolve(__dirname, "../config/config.env") });
 
 interface ENV {
   BOT_TOKEN: string | undefined;
+  CHAT_ID: string | undefined;
 }
 
 interface Config {
   BOT_TOKEN: string;
+  CHAT_ID: string;
 }
 
 const getConfig = (): ENV => {
   return {
     BOT_TOKEN: process.env.BOT_TOKEN,
+    CHAT_ID: process.env.CHAT_ID,
   };
 };
 

@@ -4,6 +4,7 @@
     "start": "vercel dev"
   },
   "dependencies": {
+    "@octokit/webhooks": "^10.9.1",
     "dotenv": "^16.0.3",
     "telegraf": "^4.12.2"
   },
@@ -11,7 +12,14 @@
     "@types/node": "^18.15.11",
     "@vercel/node": "^2.10.3",
     "prettier": "^2.8.7",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.0.4"
+    "ts-node": "10.9.1",
+    "typescript": "5.0.4",
+    "vercel": "28.4.8"
+  },
+  "overrides": {
+    "@vercel/node": {
+      "ts-node": "10.9.1",
+      "typescript": "5.0.4"
+    }
   }
 }

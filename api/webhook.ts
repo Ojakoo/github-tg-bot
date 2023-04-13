@@ -1,10 +1,7 @@
-import config from "../config";
+import bot from "../bot";
 
-import { Telegraf, Context } from "telegraf";
 import { VercelRequest, VercelResponse } from "@vercel/node";
-
-export const bot_token = config.BOT_TOKEN;
-const bot = new Telegraf(bot_token);
+import { Context } from "telegraf";
 
 bot.command("hello", async (ctx: Context) => {
   ctx.reply("hello");
