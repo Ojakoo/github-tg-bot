@@ -1,13 +1,15 @@
 {
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "dev": "vercel dev"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
     "telegraf": "^4.12.2"
   },
   "devDependencies": {
+    "@types/node": "^18.15.11",
+    "@vercel/node": "^2.10.3",
     "prettier": "^2.8.7",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
