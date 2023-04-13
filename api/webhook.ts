@@ -13,9 +13,11 @@ bot.command("hello", async (ctx: Context) => {
 export default async (req: VercelRequest, res: VercelResponse) => {
   try {
     const { body, query } = req;
+    console.log("Query:");
     console.log(query);
     await bot.handleUpdate(body);
   } catch (error) {
+    console.log("Error:");
     console.log(error);
   }
 
