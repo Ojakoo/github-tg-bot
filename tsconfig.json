@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "typeRoots": ["./global.d.ts", "./node_modules/@types"]
+    "typeRoots": ["./global.d.ts", "./node_modules/@types"],
+    "strictNullChecks": true // https://github.com/octokit/webhooks/issues/395
   },
   "exclude": ["node_modules"]
 }
