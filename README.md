@@ -29,6 +29,14 @@ Set <DEPLOY_ADDRESS>/api/github as webhook address and your CHAT_ID value as sec
 
 For receiving messages from chats. Set webhook with https://api.telegram.org/bot<BOT_TOKEN>/setWebhook?url=<DEPLOY_ADDRESS>/api/webhook
 
-## Deploy
+## Run
+
+Run application locally with:
+
+```
+npm run start
+```
+
+### Deploy
 
 Deploy to Vercel with just importing the repo and adding the env variables.
