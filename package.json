@@ -1,4 +1,9 @@
 {
+  "name": "github-tg-bot",
+  "author": "Ilari Ojakorpi",
+  "bugs": {
+    "url": "https://github.com/Ojakoo/github-tg-bot/issues"
+  },
   "main": "index.ts",
   "scripts": {
     "start": "vercel dev"
@@ -14,7 +19,7 @@
     "prettier": "^2.8.7",
     "ts-node": "10.9.1",
     "typescript": "5.0.4",
-    "vercel": "28.4.8"
+    "vercel": "^30.2.3"
   },
   "overrides": {
     "@vercel/node": {
