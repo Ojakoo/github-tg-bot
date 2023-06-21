@@ -44,8 +44,6 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   });
 
   try {
-    console.log("Received webhook");
-    console.log(chat_id);
     await webhooks.verifyAndReceive({
       id: req.headers["x-github-delivery"],
       name: req.headers["x-github-event"],
@@ -55,6 +53,10 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   } catch (error) {
     console.log("Error:");
     console.log(error);
+    // most likely to  throw for unauthorized so just throwing for it now
+    // TODO: add more checking
+    res.status(401).send("Unauthorized");
+    return;
   }
 
   res.status(200).send("OK");
