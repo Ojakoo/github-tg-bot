@@ -1,6 +1,6 @@
 # Github Api Telegram Bot
 
-This is a telegram bot that sends messages based on github api events to a telegram chat. Application allows configuring multiple github webhooks for both different repositories and telegram chats, so you need to only run single instance of this application.
+This is a telegram bot that sends messages based on github api events to a telegram chat. Application allows configuring multiple github webhooks for both different repositories and telegram chats, so you need to only run single instance for your projects.
 
 Runs on Node.js and [Vercel Edge functions](https://vercel.com/docs/concepts/functions/edge-functions).
 

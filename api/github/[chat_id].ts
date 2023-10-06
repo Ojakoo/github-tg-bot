@@ -18,11 +18,11 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   webhooks.on("pull_request", async ({ payload }) => {
     if (payload.action === "opened") {
       await send_message(
-        `${payload.sender.login} opened a pull request [${payload.pull_request.title}](${payload.pull_request.html_url})`
+        `${payload.sender.login} opened a pull request: [${payload.pull_request.title}](${payload.pull_request.html_url})`
       );
     } else if (payload.action === "closed") {
       await send_message(
-        `${payload.sender.login} closed a pull request [${payload.pull_request.title}](${payload.pull_request.html_url})`
+        `${payload.sender.login} closed a pull request: [${payload.pull_request.title}](${payload.pull_request.html_url})`
       );
     }
   });
@@ -30,16 +30,36 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   webhooks.on("issues", async ({ payload }) => {
     if (payload.action === "opened") {
       await send_message(
-        `${payload.sender.login} opened a new issue [${payload.issue.title}](${payload.issue.html_url})`
+        `${payload.sender.login} opened a new issue: [${payload.issue.title}](${payload.issue.html_url})`
       );
     } else if (payload.action === "closed") {
       await send_message(
-        `${payload.sender.login} closed an issue [${payload.issue.title}](${payload.issue.html_url})`
+        `${payload.sender.login} closed an issue: [${payload.issue.title}](${payload.issue.html_url})`
       );
     } else if (payload.action === "reopened") {
       await send_message(
-        `${payload.sender.login} reopened an issue [${payload.issue.title}](${payload.issue.html_url})`
+        `${payload.sender.login} reopened an issue: [${payload.issue.title}](${payload.issue.html_url})`
       );
+    }
+  });
+
+  webhooks.on("pull_request_review", async ({ payload }) => {
+    if (payload.action === "submitted") {
+      const state = payload.review.state;
+
+      if (state === "approved") {
+        await send_message(
+          `${payload.sender.login} approved pull request: [${payload.pull_request.title}](${payload.pull_request.html_url})`
+        );
+      } else if (state === "changes_requested") {
+        await send_message(
+          `${payload.sender.login} requested changes for pull request: [${payload.pull_request.title}](${payload.pull_request.html_url})`
+        );
+      } else if (state === "commented") {
+        await send_message(
+          `${payload.sender.login} reviewed pull request: [${payload.pull_request.title}](${payload.pull_request.html_url})`
+        );
+      }
     }
   });
 
